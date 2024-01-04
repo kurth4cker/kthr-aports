@@ -1,0 +1,27 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=bgam-xlib
+_commit=c1ebba08805a7396ed90f34ccd707789e73b247b
+pkgver=0.0.0_rc1
+pkgrel=0
+pkgdesc="Blue gamma handling CLI tool"
+url="https://git.sr.ht/~kurth4cker/bgam-xlib"
+arch="all"
+license="GPL-3.0-or-later"
+makedepends="libx11-dev libxxf86vm-dev"
+options="!check"
+subpackages="$pkgname-doc"
+source="$pkgname-$_commit.tar.gz::https://git.sr.ht/~kurth4cker/bgam-xlib/archive/$_commit.tar.gz"
+builddir="$srcdir/$pkgname-$_commit"
+
+build() {
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" PREFIX=/usr install
+}
+
+sha512sums="
+4485b2ed5406b10f43d4c0692fdcb501cf8d033193d6f2892415ecae2a2ed1fc6440d45cc335bff55fb54fc93f94994da3ccf12b8abea37ecbc336a9a6979a52  bgam-xlib-c1ebba08805a7396ed90f34ccd707789e73b247b.tar.gz
+"

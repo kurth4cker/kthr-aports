@@ -1,0 +1,26 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=libsdie
+pkgver=0.1.0a
+pkgrel=0
+pkgdesc="Suckless's die as library"
+url="https://git.sr.ht/~kurth4cker/libsdie"
+arch="all"
+license="MIT"
+options="!check"
+makedepends="$depends_dev"
+subpackages="$pkgname-doc"
+source="https://git.sr.ht/~kurth4cker/libsdie/refs/download/$pkgver/libsdie-$pkgver.tar.gz"
+
+build() {
+	make
+}
+
+package() {
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+	install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
+
+sha512sums="
+f06742ad24cc3863a63af398040fe7a47d21aec570245135f43c8d8988c759ba9dcc9645fa7966c8dd90e24a09f0fd0f4809c104a017d6f85102ba36f1001ff6  libsdie-0.1.0a.tar.gz
+"

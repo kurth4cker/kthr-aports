@@ -2,7 +2,7 @@
 # Maintainer: kurth4cker <kurth4cker@gmail.com>
 pkgname=bgam-xlib
 _commit=c1ebba08805a7396ed90f34ccd707789e73b247b
-pkgver=0.0.0_rc1
+pkgver=0.0.0_git20231227
 pkgrel=0
 pkgdesc="Blue gamma handling CLI tool"
 url="https://git.sr.ht/~kurth4cker/bgam-xlib"

@@ -1,0 +1,27 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=khat-xlib
+pkgver=0.0_git20231213
+_commit=418b12aeb15dafdee001c724fbd64a3046369e50
+pkgrel=0
+pkgdesc="Simple drawing program with Xlib"
+url="https://sr.ht/~kurth4cker/khat/"
+arch="all"
+license="GPL-3.0-or-later"
+options="!check"
+makedepends="libx11-dev"
+source="https://git.sr.ht/~kurth4cker/khat-xlib/archive/$_commit.tar.gz"
+builddir="$srcdir/$pkgname-$_commit"
+
+build() {
+	make LDFLAGS="-lX11 $LDFLAGS"
+}
+
+package() {
+	mkdir -p "$pkgdir"/usr/bin
+	cp -f khat-xlib "$pkgdir"/usr/bin
+}
+
+sha512sums="
+1f3dfa4c10b4b0adb2255651f64b1c1c747cb2720c4a3040492d9d24afa19a932ee314d026ab7997513a62d2cd66b177f9951c7c51c7abc27aee83e57960cac7  418b12aeb15dafdee001c724fbd64a3046369e50.tar.gz
+"

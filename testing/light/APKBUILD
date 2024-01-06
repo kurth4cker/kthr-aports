@@ -1,34 +1,24 @@
 # Contributor: kurth4cker <kurth4cker@gmail.com>
 # Maintainer: kurth4cker <kurth4cker@gmail.com>
 pkgname=light
-pkgver=1.3.0
+pkgver=1.3.1
 pkgrel=0
 pkgdesc="GNU/Linux application to control backlights"
 url="https://github.com/kurth4cker/light"
 arch="all"
 license="GPL-3.0-or-later"
 subpackages="$pkgname-doc"
+options="!check"
 source="https://github.com/kurth4cker/light/releases/download/$pkgver/light-$pkgver.tar.gz"
 
 build() {
-	./configure \
-		--build=$CBUILD \
-		--host=$CHOST \
-		--prefix=/usr \
-		--sysconfdir=/etc \
-		--mandir=/usr/share/man \
-		--localstatedir=/var
 	make
 }
 
-check() {
-	make check
-}
-
 package() {
-	make DESTDIR="$pkgdir" install
+	make DESTDIR="$pkgdir" PREFIX=/usr install
 }
 
 sha512sums="
-f61546187caf727cc9e6e0da0bc64793e662617502a4db46ba4013cac5fc315a278e59fdbdc56ddff05c029cc048b42604b897194ba52a95ecb7f52b0c9cc436  light-1.3.0.tar.gz
+aa9d9a1c5a078d6c4e151f955a21a0075735dbb6451d23c28ecc373f1c81f95cbb28a413d3b66a241696e7dc3346c827135ca6f87b6b1918abb25e2f8499f801  light-1.3.1.tar.gz
 "

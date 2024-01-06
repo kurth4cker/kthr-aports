@@ -3,7 +3,7 @@
 pkgname=bgam-xlib
 _commit=c1ebba08805a7396ed90f34ccd707789e73b247b
 pkgver=0.0.0_git20231227
-pkgrel=0
+pkgrel=1
 pkgdesc="Blue gamma handling CLI tool"
 url="https://git.sr.ht/~kurth4cker/bgam-xlib"
 arch="all"
@@ -20,6 +20,8 @@ build() {
 
 package() {
 	make DESTDIR="$pkgdir" PREFIX=/usr install
+	install -Dm644 README.md \
+		-t "$pkgdir"/usr/share/doc/$pkgname
 }
 
 sha512sums="

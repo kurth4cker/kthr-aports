@@ -3,12 +3,13 @@
 pkgname=khat-xlib
 pkgver=0.0_git20231213
 _commit=418b12aeb15dafdee001c724fbd64a3046369e50
-pkgrel=0
+pkgrel=1
 pkgdesc="Simple drawing program with Xlib"
 url="https://sr.ht/~kurth4cker/khat/"
 arch="all"
 license="GPL-3.0-or-later"
 options="!check"
+subpackages="$pkgname-doc"
 makedepends="libx11-dev"
 source="https://git.sr.ht/~kurth4cker/khat-xlib/archive/$_commit.tar.gz"
 builddir="$srcdir/$pkgname-$_commit"
@@ -18,8 +19,8 @@ build() {
 }
 
 package() {
-	mkdir -p "$pkgdir"/usr/bin
-	cp -f khat-xlib "$pkgdir"/usr/bin
+	install -Dm755 khat-xlib -t "$pkgdir"/usr/bin
+	install -Dm644 README.md -t "$pkgdir"/usr/share/doc/$pkgname
 }
 
 sha512sums="

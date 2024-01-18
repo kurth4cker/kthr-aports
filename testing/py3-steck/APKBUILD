@@ -3,9 +3,9 @@
 pkgname=py3-steck
 _pkgreal=steck
 pkgver=0.7.0
-pkgrel=0
+pkgrel=1
 pkgdesc="Client for pinnwand pastebin."
-url="http://packages.python.org/pypi/steck"
+url="https://github.com/supakeen/steck"
 arch="noarch"
 license="MIT"
 subpackages="$pkgname-pyc"

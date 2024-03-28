@@ -1,8 +1,8 @@
 # Contributor: Sören Tempel <soeren+alpine@soeren-tempel.net>
 # Maintainer: Sören Tempel <soeren+alpine@soeren-tempel.net>
 pkgname=vis
-pkgver=0.8_git20240205
-_commit=d3e4af1f0a33849b36196b035fddf64037e0c282
+pkgver=0.8_git20240327
+_commit="6f537f300b0b4d7e4a729e28cce7be9241e829a3"
 pkgrel=0
 pkgdesc="Modern, legacy free, simple yet efficient vim-like editor"
 url="https://github.com/martanne/vis"
@@ -12,7 +12,7 @@ depends="!outils-vis lua5.4-lpeg"
 makedepends="libtermkey-dev ncurses-dev acl-dev lua5.4-dev"
 checkdepends="vim"
 subpackages="$pkgname-doc"
-source="$pkgname-$pkgver.tar.gz::https://git.sr.ht/~martanne/vis/archive/d3e4af1f0a33849b36196b035fddf64037e0c282.tar.gz"
+source="$pkgname-$pkgver.tar.gz::https://git.sr.ht/~martanne/vis/archive/$_commit.tar.gz"
 builddir="$srcdir/$pkgname-$_commit"
 
 build() {
@@ -27,5 +27,5 @@ package() {
 	make DESTDIR="$pkgdir" install
 }
 sha512sums="
-a02a9e67be135c7e04fb8a4d2aa55e4447f82196ca49981e446bbbe34f478cb7406ed0216eef7b14a5db7c178d7b2602490f0648ec7aebe6f9e791609071dddc  vis-0.8_git20240205.tar.gz
+eea56a71be8f24929c46993fe40396563669135913cd817b393d626709fd2e200307bfa3659688ddf025deb33c6e0fcff27dd8b958b3a999add6fd39cb83877e  vis-0.8_git20240327.tar.gz
 "

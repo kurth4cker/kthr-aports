@@ -1,0 +1,26 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=libdynarr
+pkgver=0_git20240331
+pkgrel=0
+_commit="250f4eda370a4e56c1f87da7da02e55dc015ccfc"
+pkgdesc="Simple dynamic array library"
+url="https://sr.ht/~kurth4cker/dynarr"
+arch="all"
+license="GPL-3.0-or-later"
+subpackages="$pkgname-dev"
+source="libdynarr-$_commit.tar.gz::https://git.sr.ht/~kurth4cker/libdynarr/archive/$_commit.tar.gz"
+builddir="$srcdir/libdynarr-$_commit"
+options="!check"
+
+build() {
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" PREFIX="/usr" install
+}
+
+sha512sums="
+abe58b8f4135adfc18b3795996348237a4895629e25313d87b70a03b12c32c48095c5a57c4b0af5d1787010d2544b2bb5107d12e8e2b6a495ac72ddea4e252fb  libdynarr-250f4eda370a4e56c1f87da7da02e55dc015ccfc.tar.gz
+"

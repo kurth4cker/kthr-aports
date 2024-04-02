@@ -2,13 +2,13 @@
 # Maintainer: kurth4cker <kurth4cker@gmail.com>
 pkgname=libsdie
 pkgver=0.1.0a
-pkgrel=1
+pkgrel=2
 pkgdesc="Suckless's die as library"
 url="https://git.sr.ht/~kurth4cker/libsdie"
 arch="all"
 license="MIT"
 options="!check"
-subpackages="$pkgname-doc"
+subpackages="$pkgname-dev $pkgname-doc"
 source="https://git.sr.ht/~kurth4cker/libsdie/refs/download/$pkgver/libsdie-$pkgver.tar.gz"
 
 build() {

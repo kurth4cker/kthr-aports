@@ -1,0 +1,27 @@
+# Contributor: Sören Tempel <soeren+alpine@soeren-tempel.net>
+# Maintainer: Sören Tempel <soeren+alpine@soeren-tempel.net>
+pkgname=maramake
+pkgver=20221118
+_version=2022-11-18
+pkgrel=0
+pkgdesc="An implementation of POSIX make"
+url="https://maradns.samiam.org/maramake/"
+arch="all"
+license="Public Domain"
+makedepends=""
+source="https://maradns.samiam.org/maramake/maramake-$_version.tar.gz"
+builddir="$srcdir/$pkgname-$_version"
+options="!check"
+
+build() {
+	make PREFIX=/usr
+}
+
+package() {
+	mkdir -p "$pkgdir/usr/bin"
+	cp -f maramake "$pkgdir/usr/bin"
+}
+
+sha512sums="
+936e8ade32835eca23cf6c13b56f6bd78d33dea53afd9150a245eb250f1742d1d1049ab81ce33fa823ca89131ce6c344077cb264c5eb7a1499c130465fd9382a  maramake-2022-11-18.tar.gz
+"

@@ -2,23 +2,21 @@
 # Maintainer: kurth4cker <kurth4cker@gmail.com>
 pkgname=libsdie
 pkgver=0.1.0a
-pkgrel=2
+pkgrel=3
 pkgdesc="Suckless's die as library"
 url="https://git.sr.ht/~kurth4cker/libsdie"
 arch="all"
 license="MIT"
 options="!check"
-subpackages="$pkgname-dev $pkgname-doc"
+subpackages="$pkgname-doc"
 source="https://git.sr.ht/~kurth4cker/libsdie/refs/download/$pkgver/libsdie-$pkgver.tar.gz"
 
 build() {
-	make
+	make CFLAGS="$CFLAGS"
 }
 
 package() {
 	make PREFIX=/usr DESTDIR="$pkgdir" install
-	install -Dm644 LICENSE -t "$pkgdir"/usr/share/licenses/$pkgname
-	install -Dm644 README.md -t "$pkgdir"/usr/share/doc/$pkgname
 }
 
 sha512sums="

@@ -1,8 +1,8 @@
 # Contributor: Sören Tempel <soeren+alpine@soeren-tempel.net>
 # Maintainer: Sören Tempel <soeren+alpine@soeren-tempel.net>
 pkgname=vis
-pkgver=0.9_git20240508
-_commit="50a7673370fa037960e9d2c3a8d6aed1bb9c39c4"
+pkgver=0.9_git20240512
+_commit="777b11c4ebdf752fde6f134f942aa20464d9c8b5"
 pkgrel=0
 pkgdesc="Modern, legacy free, simple yet efficient vim-like editor"
 url="https://github.com/martanne/vis"
@@ -27,5 +27,5 @@ package() {
 	make DESTDIR="$pkgdir" install
 }
 sha512sums="
-aa4f9d6c8ecb9a69a5925916b6d96f80e8eb8fa1ed6d8022e6da33cfd84335633acd3b1d2810902f8f2ba7402fcec6830809e2357370aa69785fc35db4363711  vis-0.9_git20240508.tar.gz
+ffa68230c8fc42c44ceb35a0275bbf69c0230efacbd7e1ab572155a2e931d84d1ec1959907ad4768547a5b9e9724f80a029fd385fe31910d81ad1f05c80d1375  vis-0.9_git20240512.tar.gz
 "

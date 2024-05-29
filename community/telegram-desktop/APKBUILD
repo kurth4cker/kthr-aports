@@ -6,7 +6,7 @@ pkgname=telegram-desktop
 # NOTE: Keep in mind that seemingly normal releases may be pre-releases.
 # Check GitHub to make sure:
 # https://github.com/telegramdesktop/tdesktop/releases
-pkgver=5.0.2
+pkgver=5.0.5
 pkgrel=0
 pkgdesc="Telegram Desktop messaging app"
 options="!check" # no test suite
@@ -29,46 +29,46 @@ depends="qt6-qtimageformats font-opensans"
 # kcoreaddons is bundled as it requires to be built with Qt6.
 makedepends="
 	python3
-	extra-cmake-modules
-	qt6-qt5compat-dev
+
+	qt6-qtbase-dev
 	qt6-qtsvg-dev
+	qt6-qtimageformats-dev
+	qt6-qtquick3d-dev
 	qt6-qtwayland-dev
 
-	tg_owt-dev<20230314
+	tg_owt-dev
 	opus-dev
 	alsa-lib-dev
-	pulseaudio-dev
-
-	boost-dev
-	fmt-dev
 
 	abseil-cpp-dev
 	ffmpeg-dev
-	glibmm2.68-dev
-	gobject-introspection-dev
-	libdispatch-dev
-	gsl-dev
-	hunspell-dev
-	lz4-dev
-	minizip-dev
-	msgsl
-	openal-soft-dev
-	openssl-dev>3
-	range-v3-dev
-	rnnoise-dev
-	tl-expected
-	wayland-dev
-	libxcb-dev
-	xcb-util-keysyms-dev
-	xxhash-dev
-	zlib-dev
-
+	jpeg-dev
+	openh264-dev
+	openssl-dev
 	libvpx-dev
+
+	boost-dev
 	protobuf-dev
 
+	glibmm-dev
+	gobject-introspection-dev
+	libtool
+
+	libdispatch-dev
+	jemalloc-dev
+
+	kcoreaddons-dev
+	lz4-dev
+	zlib-dev
+
+	openal-soft-dev
+	range-v3-dev
+	rnnoise-dev
+
+	tl-expected
+	xxhash-dev
+
 	cmake
-	samurai
-	meson
 	"
 
 # small-sizes.patch is for postmarketOS. It makes UI elements fit in small
@@ -82,13 +82,15 @@ builddir="$srcdir/tdesktop-$pkgver-full"
 
 build() {
 	LDFLAGS="$LDFLAGS -Wl,-z,stack-size=1024768" \
-	cmake -B build -G Ninja . \
+	cmake -B build -G "Unix Makefiles" . \
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DCMAKE_BUILD_TYPE=MinSizeRel \
 		-DDESKTOP_APP_DISABLE_CRASH_REPORTS=ON \
 		-DTDESKTOP_API_ID=17349 \
 		-DTDESKTOP_API_HASH=344583e45741c457fe1862106095a5eb \
-		-DDESKTOP_APP_DISABLE_JEMALLOC=ON \
+		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=ON \
+		-DLIBTGVOIP_DISABLE_PULSEAUDIO=ON \
+		-DTG_OWT_USE_PIPEWIRE=OFF \
 		-DDESKTOP_APP_USE_PACKAGED=ON
 	cmake --build build
 }
@@ -98,6 +100,6 @@ package() {
 }
 
 sha512sums="
-f85bbf54c2fca1a86598f32d93e7e580047fdd6732e291074ddcaee8c64d65adb01c58d07e05c13e70390b98dadc43bf1c7f86c10f89d4953add8e2ebd5e92c7  tdesktop-5.0.2-full.tar.gz
+86b67a1aa01c9202cf5b299119e45e07557170e8fa66366854051aee17200fce8a1d6ef2f2c8bdfff5fe935a0d5938d48df8228eff0b22d4026b35c4b4b57307  tdesktop-5.0.5-full.tar.gz
 396b5577bdeb852be3659fcbf09a1ebdc33432baea49296869e2f968d61343679187ed4b923c51c8f417b8d4679aedd7ac863abed255b5b6b1b589029fdc34f6  small-sizes.patch
 "

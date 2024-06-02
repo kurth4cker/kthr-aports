@@ -6,7 +6,7 @@ pkgname=telegram-desktop
 # NOTE: Keep in mind that seemingly normal releases may be pre-releases.
 # Check GitHub to make sure:
 # https://github.com/telegramdesktop/tdesktop/releases
-pkgver=5.0.6
+pkgver=5.1.1
 pkgrel=0
 pkgdesc="Telegram Desktop messaging app"
 options="!check" # no test suite
@@ -100,6 +100,6 @@ package() {
 }
 
 sha512sums="
-37f3658ac6652abd6b9946d0df8105f7b41e37d1e959cfe02a9d07318313e79e234200ceec9fe209aa073af38d99a00a899491c8fefba4737fed8cf1c224ccb7  tdesktop-5.0.6-full.tar.gz
+4d33dc4e18651e17449c20f82b29dc1268b77f661d0791f33c45d5b5d00af73dca66b0849ef9711f40648132a265db5eec5f2c2aaca87aeae5df3e48d9c09f69  tdesktop-5.1.1-full.tar.gz
 396b5577bdeb852be3659fcbf09a1ebdc33432baea49296869e2f968d61343679187ed4b923c51c8f417b8d4679aedd7ac863abed255b5b6b1b589029fdc34f6  small-sizes.patch
 "

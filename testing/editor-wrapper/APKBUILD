@@ -1,0 +1,26 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=editor-wrapper
+pkgver=0.0
+pkgrel=0
+pkgdesc="Simple wrapper for $EDITOR"
+url="https://sr.ht/~kurth4cker/editor-wrapper/"
+arch="noarch"
+license="ISC"
+subpackages=""
+source="$pkgname-$pkgver.tar.gz::https://git.sr.ht/~kurth4cker/editor-wrapper/archive/$pkgver.tar.gz"
+options="!check"
+
+build() {
+	make edit
+}
+
+package() {
+	mkdir -p $pkgdir/usr/bin
+	make DESTDIR=$pkgdir PREFIX=/usr install
+	# Replace with proper package command(s)
+}
+
+sha512sums="
+3c3f94e5f0e458eb429917266d3b9bc33afb43df790550b30d001936b855985afe2c93f784c66c236bdc83f1f621ff5e118bb21b43f3ecb63bf61f97de20a63b  editor-wrapper-0.0.tar.gz
+"

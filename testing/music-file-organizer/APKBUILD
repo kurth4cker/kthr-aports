@@ -1,0 +1,25 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=music-file-organizer
+pkgver=1.0.4
+pkgrel=0
+pkgdesc="Command-line audio file organizer that reads tags and renames files"
+url="https://git.zx2c4.com/music-file-organizer/about"
+arch="all"
+license="GPL-2.0"
+makedepends="taglib-dev"
+source="https://git.zx2c4.com/music-file-organizer/snapshot/music-file-organizer-$pkgver.tar.xz"
+builddir="$srcdir/music-file-organizer-$pkgver"
+options="!check"
+
+build() {
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" PREFIX=/usr install
+}
+
+sha512sums="
+c01df8ce0dc277b7e60657cb53d78fb2a3f28eb9082a2c4239d08684895477799f99fad5b2101f8c8c0c90bdf822db34a766ced660da10973df8898dafcdefa1  music-file-organizer-1.0.4.tar.xz
+"

@@ -1,0 +1,32 @@
+# Contributor: kurth4cker <kurth4cker@gmail.com>
+# Maintainer: kurth4cker <kurth4cker@gmail.com>
+pkgname=astronaut
+pkgver=0.1.3
+pkgrel=0
+pkgdesc="A Gemini browser for the terminal"
+url="https://sr.ht/~adnano/astronaut"
+arch="all"
+license="GPL-3.0"
+makedepends="go scdoc"
+subpackages="$pkgname-doc"
+source="astronaut-$pkgver.tar.gz::https://git.sr.ht/~adnano/astronaut/archive/$pkgver.tar.gz"
+builddir="$srcdir/astronaut-$pkgver"
+options="net !check" # no test files
+
+build() {
+	make
+}
+
+package() {
+	make DESTDIR=$pkgdir PREFIX=/usr install
+}
+
+doc() {
+	mkdir -p $subpkgdir/usr/share/doc
+	mv $pkgdir/usr/share/astronaut $subpkgdir/usr/share/doc
+	default_doc
+}
+
+sha512sums="
+4e08627d11ed151a5b04dbb8b67bc76a5be51e2ab66b3e41ce43311c8988aeeb036478224bd1af43af3035d22a13157aeacbc389ff7e79c1080f7794c298ec23  astronaut-0.1.3.tar.gz
+"

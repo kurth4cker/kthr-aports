@@ -1,13 +1,13 @@
 # Contributor: kurth4cker <kurth4cker@gmail.com>
 # Maintainer: kurth4cker <kurth4cker@gmail.com>
 pkgname=editor-wrapper
-pkgver=0.0.1
+pkgver=0.1
 pkgrel=0
-pkgdesc="Simple wrapper for $EDITOR"
+pkgdesc="Simple wrapper for executing your gui or cli editor"
 url="https://sr.ht/~kurth4cker/editor-wrapper/"
 arch="noarch"
 license="ISC"
-subpackages=""
+subpackages="$pkgname-doc"
 source="$pkgname-$pkgver.tar.gz::https://git.sr.ht/~kurth4cker/editor-wrapper/archive/$pkgver.tar.gz"
 options="!check"
 
@@ -20,5 +20,5 @@ package() {
 }
 
 sha512sums="
-1c28d761b94371640dac92cd0ccb1482cdef3ee0095ea1bda4d09e61356970380baf758969ad5a7078b7cd58d9188a0ae78b3a4e7a23b8780a60e104d0604caa  editor-wrapper-0.0.1.tar.gz
+12d1d45bbe1afa256caac7f1b227282164108957a577cb3bd00ff876e35f18881eeb796bca913cd93c764c08f458c9a5fc2b0527b12cff96910e658b2754bb32  editor-wrapper-0.1.tar.gz
 "

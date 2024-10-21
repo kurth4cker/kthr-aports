@@ -2,9 +2,9 @@
 # Contributor: Antoine Fontaine <antoine.fontaine@epfl.ch>
 # Maintainer: Michał Polański <michal@polanski.me>
 pkgname=sway
-pkgver=1.10_rc3
+pkgver=1.10_rc4
 _version=${pkgver/_/-}
-pkgrel=0
+pkgrel=1
 pkgdesc="i3-compatible window manager for Wayland"
 url="https://swaywm.org/"
 license="MIT"
@@ -83,7 +83,7 @@ portalsconf() {
 wallpapers() {
 	pkgdesc="Wallpapers for Sway"
 	license="CC0-1.0"
-	install_if="$pkgname=$pkgver-r$pkgrel"
+	# install_if="$pkgname=$pkgver-r$pkgrel"
 
 	amove usr/share/backgrounds
 }
@@ -103,7 +103,7 @@ swaynag() {
 }
 
 sha512sums="
-e6cb118a6a83f3a8934e6d42f7f2a12fa2ed63b55959e825dfb05ef276622b376315e43f07b5d372043421c16c523eeffa5ba43aea3b530120dae3d9b71e444b  sway-1.10_rc3.tar.gz
+61b338e0480ef0e95b00b95d1d464ae851812768b8020fe94990310006ffdb1a8093ba8452473a2075372b283a46923d8cdbf981e0454eba4ce5ef461aebec44  sway-1.10_rc4.tar.gz
 c10862928d839a5a8a3a8c235ab9df58b0ffb111b7a0b11e9110b39169ac37de6e7eb1d945ec3611fb213ba159f0e47afd97085faa6ee8238e4d06fed0d74d70  sway-portals.conf
 327f11cc053b39816da76a62199ef40f564acc1fe474b013fc1fd594c448ae3da805bfc475b7c68cce3a17b4a261c5a4bc7e9e91a471f90f5cf4e95bbd937e6c  sway.desktop
 "

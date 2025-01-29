@@ -2,7 +2,7 @@
 # Maintainer: kurth4cker <kurth4cker@gmail.com>
 pkgname=music-file-organizer
 pkgver=1.0.4
-pkgrel=0
+pkgrel=1
 pkgdesc="Command-line audio file organizer that reads tags and renames files"
 url="https://git.zx2c4.com/music-file-organizer/about"
 arch="all"
